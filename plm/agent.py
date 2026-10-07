@@ -6,7 +6,8 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from plm.outils import consulter_piece, lister_descendants, verifier_transition
+from plm.outils import cas_emploi, consulter_piece, lister_descendants, rechercher_pieces, verifier_transition
+
 
 load_dotenv()
 

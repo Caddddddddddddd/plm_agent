@@ -40,7 +40,21 @@ def effectuer_transition(reference: str, revision: str, etat_cible: str) -> dict
     return _reponse(client.post(f"/pieces/{reference}/{revision}/transition", json={"etat_cible": etat_cible}))
 
 
-OUTILS = [consulter_piece, lister_descendants, verifier_transition, effectuer_transition]
+
+
+@tool
+def rechercher_pieces(texte: str) -> list:
+    """Recherche des pièces par nom ou par référence (ex : 'batterie', 'rotor', 'A-1').
+    À utiliser quand l'utilisateur désigne une pièce par son nom sans donner sa référence."""
+    return _reponse(client.get("/pieces", params={"recherche": texte}))
+
+
+@tool
+def cas_emploi(reference: str, revision: str) -> list | dict:
+    """Indique où une pièce est utilisée : liste tous les sous-ensembles et assemblages qui la contiennent, à tous les niveaux."""
+    return _reponse(client.get(f"/pieces/{reference}/{revision}/cas-emploi"))
+
+OUTILS = [rechercher_pieces, cas_emploi, consulter_piece, lister_descendants, verifier_transition, effectuer_transition]
 
 if __name__ == "__main__":
     print(consulter_piece.invoke({"reference": "A-100", "revision": "A"}))

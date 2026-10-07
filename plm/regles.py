@@ -53,6 +53,21 @@ def verifier_transition(conn, reference, revision, etat_cible) -> tuple[bool, li
 
     return len(raisons) == 0, raisons
 
+def parents_directs(conn: sqlite3.Connection, reference: str, revision: str) -> list[tuple[str, str]]:
+    """Renvoie la liste des (référence, révision) des parents directs d'une pièce."""
+    return conn.execute(
+        "SELECT parent_ref, parent_rev FROM structure WHERE enfant_ref = ? AND enfant_rev = ?",
+        (reference, revision),
+    ).fetchall()
+
+
+def ascendants(conn: sqlite3.Connection, reference: str, revision: str) -> list[tuple[str, str]]:
+    """Renvoie tous les ascendants d'une pièce (parents, grands-parents...), à tous les niveaux."""
+    resultat = []
+    for parent_ref, parent_rev in parents_directs(conn, reference, revision):
+        resultat.append((parent_ref, parent_rev))
+        resultat.extend(ascendants(conn, parent_ref, parent_rev))
+    return resultat
 
 if __name__ == "__main__":
     conn = sqlite3.connect("plm.db")

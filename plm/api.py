@@ -4,7 +4,7 @@ from typing import Literal
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
 
-from plm.regles import descendants, verifier_transition
+from plm.regles import ascendants, descendants, verifier_transition
 
 CHEMIN_BASE = "plm.db"
 Etat = Literal["En cours", "Gelé", "Publié", "Obsolète"]
@@ -37,8 +37,15 @@ class DemandeTransition(BaseModel):
 
 
 @app.get("/pieces")
-def lister_pieces(conn=Depends(get_conn)):
-    lignes = conn.execute("SELECT * FROM pieces ORDER BY reference, revision").fetchall()
+def lister_pieces(recherche: str | None = None, conn=Depends(get_conn)):
+    if recherche:
+        motif = f"%{recherche}%"
+        lignes = conn.execute(
+            "SELECT * FROM pieces WHERE nom LIKE ? OR reference LIKE ? ORDER BY reference, revision",
+            (motif, motif),
+        ).fetchall()
+    else:
+        lignes = conn.execute("SELECT * FROM pieces ORDER BY reference, revision").fetchall()
     return [dict(ligne) for ligne in lignes]
 
 
@@ -72,3 +79,8 @@ def effectuer_transition(reference: str, revision: str, demande: DemandeTransiti
     )
     conn.commit()
     return lire_piece(conn, reference, revision)
+
+@app.get("/pieces/{reference}/{revision}/cas-emploi")
+def lister_cas_emploi(reference: str, revision: str, conn=Depends(get_conn)):
+    lire_piece(conn, reference, revision)
+    return [lire_piece(conn, ref, rev) for ref, rev in ascendants(conn, reference, revision)]
