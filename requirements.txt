@@ -4,3 +4,5 @@ httpx
 pytest
 langgraph
 langchain-core
+langchain-openai
+python-dotenv
