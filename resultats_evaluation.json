@@ -1,0 +1,392 @@
+{
+  "resume": {
+    "essais": 36,
+    "taux_bons_outils": 97.2,
+    "taux_reponses_completes": 97.2,
+    "taux_reussite_global": 94.4
+  },
+  "essais": [
+    {
+      "question": "Peut-on publier le module batterie A-200 ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce A-200 (Module batterie, révision A) est actuellement en état \"Gelé\". La vérification indique que la transition vers \"Publié\" est autorisée et aucune raison de blocage n'a été donnée. \n\nSouhaitez-vous que je lance la publication (passer A-200 à l'état \"Publié\") ? Le système vous demandera ensuite de confirmer la modification."
+    },
+    {
+      "question": "Peut-on publier le module batterie A-200 ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Oui — la pièce A-200 (rév. A, \"Module batterie\") est actuellement \"Gelé\" et la transition vers \"Publié\" est autorisée (aucune raison de blocage).\n\nSouhaitez-vous que je lance la publication maintenant ? Le système vous demandera ensuite de confirmer la modification."
+    },
+    {
+      "question": "Peut-on publier le module batterie A-200 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Oui — la transition vers \"Publié\" pour la pièce A-200 (rév. A) est autorisée. Voulez-vous que je lance la publication ? Le système vous demandera une validation avant d'appliquer la modification."
+    },
+    {
+      "question": "Peut-on publier le moteur A-100 ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non — la publication de A-100/A est refusée. Raisons :\n- A-100/A est à l'état \"En cours\" : la transition directe vers \"Publié\" est interdite.\n- S-110/A est \"Gelé\" : il doit être publié avant A-100/A.\n- P-112/A est \"Gelé\" : il doit être publié avant A-100/A.\n\nProchaines étapes recommandées :\n1. Publier d'abord S-110/A et P-112/A (vérifier leur possibilité de publication).\n2. Mettre A-100/A dans l'état requis (ex. \"Gelé\") puis republier A-100/A.\n\nSouhaitez-vous que je vérifie maintenant si S-110/A et P-112/A peuvent être publiés ?"
+    },
+    {
+      "question": "Peut-on publier le moteur A-100 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non — on ne peut pas publier A-100/A. Raisons :\n- A-100/A est en \"En cours\" : la transition directe vers \"Publié\" est interdite.\n- S-110/A est \"Gelé\" : il doit être publié avant A-100.\n- P-112/A est \"Gelé\" : il doit être publié avant A-100.\n\nPropositions d'étapes suivantes (je peux exécuter les vérifications si vous voulez) :\n1) Vérifier si S-110/A et P-112/A peuvent être publiés (et lancer leur publication si vous le confirmez).  \n2) Vérifier si A-100/A peut passer en \"Gelé\" puis en \"Publié\" une fois les dépendances publiées.\n\nQue souhaitez-vous que je fasse en premier ? (je peux commencer par vérifier S-110/A et P-112/A)"
+    },
+    {
+      "question": "Peut-on publier le moteur A-100 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non — on ne peut pas publier A-100/A pour les raisons suivantes :\n\n- A-100/A est en état \"En cours\" : passage direct à \"Publié\" interdit.  \n- S-110/A est \"Gelé\" : il doit être publié avant A-100.  \n- P-112/A est \"Gelé\" : il doit être publié avant A-100.\n\nProposition d'actions :\n- Publier d'abord S-110/A et P-112/A, puis remettre A-100 dans un état autorisant la publication (il est actuellement \"En cours\") et retenter la publication.  \n\nSouhaitez-vous que je vérifie maintenant si S-110/A et P-112/A peuvent être publiées ? (Si oui, je lance les vérifications — toute modification d'état nécessitera ensuite votre confirmation.)"
+    },
+    {
+      "question": "Qu'est-ce qui bloque la publication du train avant A-300 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La publication de A-300 (rév. A) est bloquée pour deux raisons vérifiées :\n\n- S-310/A est « En cours » — il doit être publié avant de pouvoir publier A-300.  \n- P-312/A est « Obsolète » — il doit être remplacé par une révision à jour (ou on doit publier sa révision valide) avant la publication de A-300.\n\nSouhaitez-vous que je : 1) liste les composants descendants de A-300, 2) affiche où P-312/A est utilisé, ou 3) recherche une révision valide de P-312 ?"
+    },
+    {
+      "question": "Qu'est-ce qui bloque la publication du train avant A-300 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "J'ai pris A comme révision par défaut pour A-300. La publication de A-300/A est bloquée pour deux raisons (vérifiées) :\n- S-310/A est en état \"En cours\" : ce sous‑ensemble doit d'abord être publié.\n- P-312/A est en état \"Obsolète\" : il faut le remplacer par une révision à jour avant de publier A-300/A.\n\nActions recommandées :\n1. Publier S-310/A (vérifier d'abord si la transition vers \"Publié\" est autorisée).\n2. Remplacer ou mettre à jour P-312 (créer/associer une révision non obsolète), puis valider la publication.\n\nJe peux vérifier maintenant si S-310/A peut être publié et si une révision valide de P-312 existe — voulez-vous que je lance ces vérifications ?"
+    },
+    {
+      "question": "Qu'est-ce qui bloque la publication du train avant A-300 ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La publication du train avant A-300 (rév. A) est bloquée pour deux raisons :\n\n- S-310/A est en état \"En cours\" : il doit être publié avant que A-300 puisse l'être.  \n- P-312/A est obsolète : elle doit être remplacée par une révision à jour.\n\nSouhaitez-vous que je vérifie si S-310/A peut être publié (vérifier la transition) et/ou que je cherche une révision de remplacement pour P-312/A ?"
+    },
+    {
+      "question": "Où est utilisé le capteur P-222 ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le capteur P-222 (rév. A) est utilisé dans les éléments suivants :\n\n- S-110 (A) — Stator — Sous-ensemble — État : Gelé  \n- A-100 (A) — Moteur électrique — Assemblage — État : En cours  \n- S-220 (A) — Système de gestion batterie (BMS) — Sous-ensemble — État : Publié  \n- A-200 (A) — Module batterie — Assemblage — État : Gelé\n\nSouhaitez-vous que j'affiche la nomenclature détaillée d'un de ces assemblages ou que je liste les descendants d'un élément particulier ?"
+    },
+    {
+      "question": "Où est utilisé le capteur P-222 ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "rechercher_pieces",
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le capteur P-222 (rév. A) est utilisé dans :\n\n- S-110 (rév. A) — Stator (sous-ensemble) — État : Gelé  \n- A-100 (rév. A) — Moteur électrique (assemblage) — État : En cours  \n- S-220 (rév. A) — Système de gestion batterie (BMS) (sous-ensemble) — État : Publié  \n- A-200 (rév. A) — Module batterie (assemblage) — État : Gelé\n\nSouhaitez-vous voir l'arbre des composants d'un de ces assemblages ou obtenir plus de détails ?"
+    },
+    {
+      "question": "Où est utilisé le capteur P-222 ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "rechercher_pieces",
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le capteur P-222 (rév. A — \"Capteur de température\", état : Publié) est utilisé dans les éléments suivants :\n\n- S-110 (A) — Stator — Sous-ensemble — état : Gelé  \n- A-100 (A) — Moteur électrique — Assemblage — état : En cours  \n- S-220 (A) — Système de gestion batterie (BMS) — Sous-ensemble — état : Publié  \n- A-200 (A) — Module batterie — Assemblage — état : Gelé\n\nVoulez-vous que j’affiche l’arborescence complète des niveaux ou le détail d’un des assemblages ci‑dessus ?"
+    },
+    {
+      "question": "Peut-on publier le module batterie ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce \"Module batterie\" (réf. A-200, révision A) peut être publiée — la transition vers l'état \"Publié\" est autorisée. Souhaitez-vous que je lance la publication ? (Le système vous demandera une confirmation avant d'effectuer la modification.)"
+    },
+    {
+      "question": "Peut-on publier le module batterie ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce \"Module batterie\" (réf. A-200 révision A) peut être publiée — aucune restriction reportée par la vérification. Voulez-vous que je lance la transition vers l'état \"Publié\" ?"
+    },
+    {
+      "question": "Peut-on publier le module batterie ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le module batterie (réf. A-200, révision A) peut être publié — aucune condition bloquante détectée. Voulez-vous que je lance la publication ? (Le système vous demandera automatiquement de confirmer l'opération.)"
+    },
+    {
+      "question": "Quel est l'état du rotor S-120 révision B ?",
+      "outils_appeles": [
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le rotor S-120 révision B est en état «Publié».  \nType : Sous-ensemble.  \nIl n’est remplacé par aucune autre pièce."
+    },
+    {
+      "question": "Quel est l'état du rotor S-120 révision B ?",
+      "outils_appeles": [
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le rotor S-120 révision B (sous-ensemble) est en état : \"Publié\"."
+    },
+    {
+      "question": "Quel est l'état du rotor S-120 révision B ?",
+      "outils_appeles": [
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce S-120 révision B (Rotor) est actuellement à l'état : Publié."
+    },
+    {
+      "question": "Peut-on remettre le rotor S-120 révision B en cours ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non — je ne peux pas. Le rotor S-120 révision B est actuellement « Publié » et la transition vers « En cours » est interdite (blocage système : \"S-120/B est 'Publié' : passage à 'En cours' interdit\").\n\nOptions possibles :\n- Créer une nouvelle révision (par ex. C) et la passer « En cours » pour modifier la pièce.\n- Lancer une procédure de dépublication / intervention administrative si votre process le permet.\n- Vérifier d'autres transitions possibles pour S-120/B (par ex. « Gelé » ou « Obsolète »).\n\nSouhaitez-vous que je vérifie la possibilité de passer S-120/B à un autre état, ou que je recherche les autres révisions du rotor ?"
+    },
+    {
+      "question": "Peut-on remettre le rotor S-120 révision B en cours ?",
+      "outils_appeles": [
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non — on ne peut pas. La vérification indique : non autorisé. Raison : S-120/B est « Publié » et le passage à « En cours » est interdit.\n\nSouhaitez-vous que je vérifie quelles transitions sont possibles pour S-120/B ou que je consulte sa fiche ?"
+    },
+    {
+      "question": "Peut-on remettre le rotor S-120 révision B en cours ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Non, on ne peut pas : S-120 révision B est actuellement à l'état \"Publié\" et la transition vers \"En cours\" est interdite par les règles métier."
+    },
+    {
+      "question": "Quels sont les composants du stator S-110 ?",
+      "outils_appeles": [
+        "lister_descendants"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Voici les composants du stator S-110 (rév. A) :\n\n- P-111 (A) — Bobinage cuivre — État : Publié  \n- P-112 (A) — Tôles magnétiques — État : Gelé  \n- P-222 (A) — Capteur de température — État : Publié\n\nSouhaitez-vous consulter le détail d'une de ces pièces ou leur arborescence complète ?"
+    },
+    {
+      "question": "Quels sont les composants du stator S-110 ?",
+      "outils_appeles": [
+        "lister_descendants"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Voici la liste des composants du stator S-110 (révision A), à tous les niveaux :\n\n- P-111 (rév. A) — Bobinage cuivre — État : Publié  \n- P-112 (rév. A) — Tôles magnétiques — État : Gelé  \n- P-222 (rév. A) — Capteur de température — État : Publié\n\nSouhaitez-vous les consulter en détail (fiche pièce) ou voir où chaque composant est utilisé ?"
+    },
+    {
+      "question": "Quels sont les composants du stator S-110 ?",
+      "outils_appeles": [
+        "lister_descendants"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le stator S-110 (rév. A) contient les composants suivants :\n\n- P-111 (rév. A) — Bobinage cuivre — Pièce — État : Publié  \n- P-112 (rév. A) — Tôles magnétiques — Pièce — État : Gelé  \n- P-222 (rév. A) — Capteur de température — Pièce — État : Publié\n\nSouhaitez-vous consulter le détail (fiche) ou lister les usages d’un de ces composants ?"
+    },
+    {
+      "question": "Dans quels assemblages est utilisé le silentbloc P-312 révision A ?",
+      "outils_appeles": [
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le silentbloc P-312 révision A est utilisé dans :\n- S-310 (Bras de suspension) — sous-ensemble — état : En cours\n- A-300 (Train avant) — assemblage — état : Gelé"
+    },
+    {
+      "question": "Dans quels assemblages est utilisé le silentbloc P-312 révision A ?",
+      "outils_appeles": [
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le silentbloc P-312 révision A est utilisé dans 2 endroits :\n\n- S-310 révision A — Bras de suspension (Sous-ensemble), état : En cours  \n- A-300 révision A — Train avant (Assemblage), état : Gelé\n\nSouhaitez-vous consulter l'un de ces assemblages ou voir leurs composants ?"
+    },
+    {
+      "question": "Dans quels assemblages est utilisé le silentbloc P-312 révision A ?",
+      "outils_appeles": [
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Le silentbloc P-312 révision A est utilisé dans les éléments suivants :\n- S-310 (rév. A) — Bras de suspension — Sous-ensemble — État : En cours\n- A-300 (rév. A) — Train avant — Assemblage — État : Gelé"
+    },
+    {
+      "question": "Peut-on geler le moteur A-100 ?",
+      "outils_appeles": [
+        "verifier_transition",
+        "effectuer_transition",
+        "consulter_piece"
+      ],
+      "bons_outils": false,
+      "reponse_complete": true,
+      "reussi": false,
+      "reponse": "Oui — la transition est possible.\n\nDétails :\n- Pièce : A-100 (rév. A) — Moteur électrique\n- État actuel : En cours\n- Transition vers : Gelé\n- Vérification : autorisée (aucun blocage identifié)\n\nRemarque : j'ai tenté d'appliquer la transition, mais elle a été refusée lors de la demande de confirmation utilisateur : aucune modification n'a donc été effectuée.  \nSi vous voulez que j'essaie de nouveau, dites simplement « geler A-100 » ; le système vous demandera alors de confirmer la modification."
+    },
+    {
+      "question": "Peut-on geler le moteur A-100 ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "verifier_transition"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La transition vers l'état \"Gelé\" est autorisée pour la pièce A-100 (Moteur électrique, révision A). Souhaitez-vous que je procède à la mise en \"Gelé\" ?"
+    },
+    {
+      "question": "Peut-on geler le moteur A-100 ?",
+      "outils_appeles": [
+        "verifier_transition",
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Oui — la transition est autorisée.\n\nPièce : A-100 (rév. A) — Moteur électrique  \nÉtat actuel : En cours  \nTransition vers : Gelé  \nBlocages : aucun\n\nSouhaitez-vous que j'exécute la transition ?"
+    },
+    {
+      "question": "Le connecteur haute tension est-il utilisé quelque part ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "cas_emploi",
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce \"Connecteur haute tension\" est P-400 révision A (état : En cours). Aucune utilisation trouvée — elle n'apparaît dans aucun sous-ensemble ni assemblage.  \n\nSouhaitez-vous que je cherche une autre révision ou que je liste ses descendants ?"
+    },
+    {
+      "question": "Le connecteur haute tension est-il utilisé quelque part ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "La pièce \"Connecteur haute tension\" est la référence P-400 révision A (état : En cours). Aucune occurrence dans les cas d'emploi : elle n'est utilisée dans aucun assemblage/sous-ensemble répertorié.\n\nSouhaitez-vous que je :\n- affiche la fiche complète de la pièce, ou\n- recherche si elle apparaît dans des documents/variants, ou\n- vérifie si elle peut passer à un autre état ?"
+    },
+    {
+      "question": "Le connecteur haute tension est-il utilisé quelque part ?",
+      "outils_appeles": [
+        "rechercher_pieces",
+        "cas_emploi"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "J'ai retrouvé la pièce : Connecteur haute tension — référence P-400, révision A (état : En cours).\n\nCas d'emploi : aucun assemblage ou sous-ensemble n'utilise actuellement cette pièce (aucun cas d'emploi trouvé).\n\nSouhaitez-vous que je recherche d'autres révisions, que je liste ses descendants, ou que je fasse autre chose ?"
+    },
+    {
+      "question": "Quel est l'état de la pièce X-999 ?",
+      "outils_appeles": [
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": false,
+      "reussi": false,
+      "reponse": "Je n’ai pas trouvé la pièce X-999 révision A dans la base (requête consultée).  \nVérifiez la référence ou la révision. Souhaitez-vous que je :\n- recherche « X-999 » dans la base pour retrouver la bonne référence/révision, ou  \n- que vous me fournissiez la référence+révision exacte ?"
+    },
+    {
+      "question": "Quel est l'état de la pièce X-999 ?",
+      "outils_appeles": [
+        "consulter_piece"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Je n’ai pas pu trouver la pièce X-999 (révision A par défaut) dans le référentiel : X-999/A introuvable.\n\nQue souhaitez-vous faire ensuite ?\n- Confirmer une autre révision (ex : B) et je vérifie cette révision.\n- Me donner un nom de pièce et je la recherche pour retrouver sa référence.\n- Me demander de lancer une recherche sur « X-999 » pour voir des correspondances possibles."
+    },
+    {
+      "question": "Quel est l'état de la pièce X-999 ?",
+      "outils_appeles": [
+        "consulter_piece",
+        "rechercher_pieces"
+      ],
+      "bons_outils": true,
+      "reponse_complete": true,
+      "reussi": true,
+      "reponse": "Je ne trouve pas la pièce X-999 (j’ai cherché la révision A par défaut). Vérifications effectuées :\n- consulter_piece(X-999/A) → « Pièce introuvable »\n- rechercher_pieces(\"X-999\") → aucun résultat\n\nVeuillez vérifier la référence ou préciser la révision souhaitée. Vous pouvez aussi me donner le nom de la pièce pour que je la recherche ; je relancerai la recherche dès réception."
+    }
+  ]
+}
